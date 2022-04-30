@@ -1,11 +1,17 @@
 //DEPS
+require("dotenv").config()
 const express = require('express')
 const app = express()
 const bcrypt = require('bcrypt')
+const connectDB= require("./models/index")
 
 //MIDWARE
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+
+//connect database
+
+connectDB()
 
 
 const users = []
@@ -44,7 +50,16 @@ app.post('/login', async (req, res) => {
     }
     catch {
         res.send(500).send()
-    }
-})
+    }})
 
-app.listen(3000)
+//app.get('/', (req, res) => {
+//    res.send("API is running")
+//})
+
+
+
+
+const exercisesRouter = require('./controllers/index');
+app.use('/index', exercisesRouter);
+
+app.listen(process.env.PORT, ()=> console.log(`server started on port ${process.env.PORT}`))

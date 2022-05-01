@@ -24,8 +24,9 @@ router.post("/register", (req, res) => {
         return res.status(400).json({ user: "User Name already exists" });
       } else {
         const newUser = new User({
-          name: req.body.name,
-          password: req.body.password
+          userName: req.body.userName,
+          password: req.body.password,
+          name: req.body.name
         });
   // Hash password before saving in database
         bcrypt.genSalt(10, (err, salt) => {

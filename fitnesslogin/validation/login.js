@@ -9,8 +9,6 @@ data.password = !isEmpty(data.password) ? data.password : "";
 // User Name checks
 if (Validator.isEmpty(data.userName)) {
     errors.userName = "User Name field is required";
-  } else if (!Validator.isUserName(data.userName)) {
-    errors.userName = "User Name is invalid";
   }
 
 // Password checks

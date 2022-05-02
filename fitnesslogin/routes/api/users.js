@@ -103,7 +103,7 @@ router.post("/login", (req, res) => {
     "/add",
     passport.authenticate("jwt", { session: false }),
     (req, res) => {
-      //const userName= req.body.userName;
+      
        const description = req.body.description;
        const duration = req.body.duration;
        const date=Date.parse(req.body.date)
@@ -113,7 +113,7 @@ router.post("/login", (req, res) => {
        }
       
        const newExercise = new Exercise(
-         { //userName,
+         { 
            description,
            duration,
            date,

@@ -6,8 +6,13 @@ const keys = require("../../config/keys");
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
+const validateActivityInput = require("../../validation/activity");
 // Load User model
 const User = require("../../models/User");
+
+let Exercise = require('../../models/activity');
+const passport = require("passport");
+
 
 // @route POST api/users/register
 // @desc Register user
@@ -92,5 +97,35 @@ router.post("/login", (req, res) => {
       });
     });
   });
+
+
+  router.post(
+    "/add",
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+      //const userName= req.body.userName;
+       const description = req.body.description;
+       const duration = req.body.duration;
+       const date=Date.parse(req.body.date)
+       const { errors, isValid } = validateActivityInput(req.body);
+       if (!isValid) {
+          return res.status(400).json(errors);
+       }
+      
+       const newExercise = new Exercise(
+         { //userName,
+           description,
+           duration,
+           date,
+         }
+       );
+       newExercise
+          .save()
+          .then(doc => res.json(doc))
+          .catch(err => console.log({ create: "Error creating new post" }));
+    }
+ );
+
+
 
   module.exports = router;

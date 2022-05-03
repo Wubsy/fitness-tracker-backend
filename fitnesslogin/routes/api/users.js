@@ -24,9 +24,9 @@ router.post("/register", (req, res) => {
     if (!isValid) {
       return res.status(400).json(errors);
     }
-  User.findOne({ user: req.body.userName }).then(user => {
+  User.findOne({ userName: req.body.userName }).then(user => {
       if (user) {
-        return res.status(400).json({ user: "User Name already exists" });
+          return res.status(400).json({ user: "User Name already exists" });
       } else {
         const newUser = new User({
           userName: req.body.userName,
@@ -103,7 +103,7 @@ router.post("/login", (req, res) => {
     "/add",
     passport.authenticate("jwt", { session: false }),
     (req, res) => {
-      
+       const userId = jwt.verify((req.headers["authorization"]).replace("Bearer ", ""), process.env.SECRET).id;
        const description = req.body.description;
        const duration = req.body.duration;
        const date=Date.parse(req.body.date)
@@ -113,7 +113,8 @@ router.post("/login", (req, res) => {
        }
       
        const newExercise = new Exercise(
-         { 
+         {
+           userId,
            description,
            duration,
            date,
@@ -122,7 +123,7 @@ router.post("/login", (req, res) => {
        newExercise
           .save()
           .then(doc => res.json(doc))
-          .catch(err => console.log({ create: "Error creating new post" }));
+          .catch(err => res.status(500).json({ create: "Error creating new post: " +err}));
     }
  );
 

@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const keys = require("../../config/keys");
+//const keys = require("../../config/keys");
+require('dotenv').config()
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
@@ -78,7 +79,7 @@ router.post("/login", (req, res) => {
   // Sign token
           jwt.sign(
             payload,
-            keys.secretOrKey,
+            process.env.secretOrKey,
             {
               expiresIn: 31556926 // 1 year in seconds
             },
@@ -97,36 +98,6 @@ router.post("/login", (req, res) => {
       });
     });
   });
-
-
-  router.post(
-    "/add",
-    passport.authenticate("jwt", { session: false }),
-    (req, res) => {
-       const userId = jwt.verify((req.headers["authorization"]).replace("Bearer ", ""), process.env.SECRET).id;
-       const description = req.body.description;
-       const duration = req.body.duration;
-       const date=Date.parse(req.body.date)
-       const { errors, isValid } = validateActivityInput(req.body);
-       if (!isValid) {
-          return res.status(400).json(errors);
-       }
-      
-       const newExercise = new Exercise(
-         {
-           userId,
-           description,
-           duration,
-           date,
-         }
-       );
-       newExercise
-          .save()
-          .then(doc => res.json(doc))
-          .catch(err => res.status(500).json({ create: "Error creating new post: " +err}));
-    }
- );
-
 
 
   module.exports = router;

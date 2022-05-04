@@ -3,7 +3,9 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const users = require("./routes/api/users");
+const activities = require("./routes/api/activity");
 const app = express();
+require('dotenv').config();
 
 // Bodyparser middleware
 app.use(
@@ -13,11 +15,12 @@ app.use(
 );
 app.use(bodyParser.json());
 // DB Config
-const db = require("./config/keys").mongoURI;
+//const db = process.env.MONGO_URI;
+const activity = require("./validation/activity");
 // Connect to MongoDB
 mongoose
   .connect(
-    db,
+    process.env.MONGO_URI,
     { useNewUrlParser: true }
   )
   .then(() => console.log("MongoDB successfully connected"))
@@ -29,10 +32,10 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 // Routes
 app.use("/api/users", users);
-
+app.use("/api/activity", activities);
 
 //const exercisesRouter = require('./routes/api/activity');
 //app.use('/activity', exercisesRouter);
 
-const port = process.env.PORT || 3000; 
+const port = process.env.PORT ; 
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));

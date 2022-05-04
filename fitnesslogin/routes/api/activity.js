@@ -9,7 +9,37 @@ const {request} = require("express");
 
 require('dotenv').config()
 
-mongoose.connect(process.env.MONGOURI, { useNewUrlParser: true })
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
+
+
+router.post(
+    "/add",
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+       const userId = jwt.verify((req.headers["authorization"]).replace("Bearer ", ""), process.env.secretOrKey).id;
+       const description = req.body.description;
+       const duration = req.body.duration;
+       const date=Date.parse(req.body.date)
+       const { errors, isValid } = validateActivityInput(req.body);
+       if (!isValid) {
+          return res.status(400).json(errors);
+       }
+      
+       const newExercise = new Exercise(
+         {
+           userId,
+           description,
+           duration,
+           date,
+         }
+       );
+       newExercise
+          .save()
+          .then(doc => res.json(doc))
+          .catch(err => res.status(500).json({ create: "Error creating new post: " +err}));
+    }
+ );
+
 
 
 

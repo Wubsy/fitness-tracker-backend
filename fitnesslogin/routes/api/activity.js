@@ -49,30 +49,42 @@ Data expected from delete:
     activityId: "", //Should correlate to _id in exercises
     name: "" //Optional, maybe even suggested you don't, as the backend should be able to resolve this information
 }
-
  */
 
 
-router.post('/delete',  passport.authenticate("jwt", { session: false }), (req, res) => {
-    let currToken = req.headers["authorization"]
-    currToken = currToken.replace("Bearer ", "")
-    const decodedUser = jwt.verify(currToken, process.env.SECRET)
+// router.delete('/delete/:id',  passport.authenticate("jwt", { session: false }), (req, res) => {
+//     let currToken = req.headers["authorization"]
+//     currToken = currToken.replace("Bearer ", "")
+//     const decodedUser = jwt.verify(currToken, process.env.secretOrKey)
 
-    Exercise.findById(req.body.activityId, null, null, (err, activityToDelete) => {
-        if (decodedUser.id === activityToDelete.userId)  {
-            Exercise.findByIdAndDelete(req.body.activityId, null, (err, deletedActivity) => {
-                if (err) {
-                    res.status(500).json({message: "Error: "+err})
-                    return
-                }
-            })
-            res.status(200).json({message: "Activity deleted successfully"})
-        } else {
-            res.status(401).json({message: "User does not have permission or activity does not exist"})
-        }
-    })
+//     Exercise.findById(req.body.activityId, null, null, (err, activityToDelete) => {
+//         if (decodedUser.id === activityToDelete.userId)  {
+//             Exercise.findByIdAndDelete(req.body.activityId, null, (err, deletedActivity) => {
+//                 if (err) {
+//                     res.status(500).json({message: "Error: "+err})
+//                     return
+//                 }
+//             })
+//             res.status(200).json({message: "Activity deleted successfully"})
+//         } else {
+//             res.status(401).json({message: "User does not have permission or activity does not exist"})
+//         }
+//     })
 
 
-})
+// })
+
+router.delete(
+    "/delete/:id",
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+       const exercise = req.user.userName;
+       Exercise.findOneAndDelete({ exercise, _id: req.params.id })
+          .then(doc => res.status(200).json(doc))
+          .catch(err =>
+             res.status(400).json({ delete: "Error deleting a post" })
+          );
+    }
+ );
 
 module.exports = router;

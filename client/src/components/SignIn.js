@@ -1,22 +1,18 @@
-
 import React, { Component } from 'react'
-import { connect } from 'react-redux';
-//import "bootstrap/dist/css/bootstrap.min.css";
-export default class SignUp extends Component {
+export default class Login extends Component {
   render() {
     return (
       <form>
-        <h3>Sign Up</h3>
+        <h3>Sign In</h3>
         <div className="mb-3">
           <label>Username</label>
           <input
-            type="text"
+            type="Username"
             className="form-control"
-            placeholder="First name"
+            placeholder="Enter Username"
           />
         </div>
         <div className="mb-3">
-
           <label>Password</label>
           <input
             type="password"
@@ -25,21 +21,24 @@ export default class SignUp extends Component {
           />
         </div>
         <div className="mb-3">
-
-      <label>Password Verification</label>
-      <input
-    type="password"
-    className="form-control"
-    placeholder="Enter password"
-    />
-</div>
+          <div className="custom-control custom-checkbox">
+            <input
+              type="checkbox"
+              className="custom-control-input"
+              id="customCheck1"
+            />
+            <label className="custom-control-label" htmlFor="customCheck1">
+              Remember me
+            </label>
+          </div>
+        </div>
         <div className="d-grid">
           <button type="submit" className="btn btn-primary">
-            Sign Up
+            Submit
           </button>
         </div>
         <p className="forgot-password text-right">
-          Already registered <a href="/signIn">sign in?</a>
+          Forgot <a href="#">password?</a>
         </p>
       </form>
     )

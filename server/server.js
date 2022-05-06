@@ -6,7 +6,8 @@ const users = require("./routes/api/users");
 const activities = require("./routes/api/activity");
 const app = express();
 require('dotenv').config();
-
+const cors= require("cors");
+app.use(cors())
 // Bodyparser middleware
 app.use(
   bodyParser.urlencoded({

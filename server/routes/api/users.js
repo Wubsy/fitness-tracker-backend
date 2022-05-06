@@ -5,13 +5,13 @@ const jwt = require("jsonwebtoken");
 //const keys = require("../../config/keys");
 require('dotenv').config()
 // Load input validation
-const validateRegisterInput = require("../../../validation/register");
-const validateLoginInput = require("../../../validation/login");
-const validateActivityInput = require("../../../validation/activity");
+const validateRegisterInput = require("../../validation/register");
+const validateLoginInput = require("../../validation/login");
+const validateActivityInput = require("../../validation/activity");
 // Load User model
-const User = require("../../../models/User");
+const User = require("../../models/User");
 
-let Exercise = require('../../../models/activity');
+let Exercise = require('../../models/activity');
 const passport = require("passport");
 
 

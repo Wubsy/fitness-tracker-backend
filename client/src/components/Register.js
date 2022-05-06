@@ -1,25 +1,28 @@
+
+  
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-//import { FaUser } from 'react-icons/fa'
-import authSlice from '../features /auth/authSlice'
-import { reset } from '../features /auth/authSlice'
-//import Spinner from '../components/Spinner'
+
+import { register, reset } from '../features /auth/authSlice';
+
+// import authSlice from '../features /auth/authSlice'
 
 function Register() {
   const [formData, setFormData] = useState({
     userName: '',
     password: '',
     password2: '',
+    name: ""
   })
 
-  const { userName, password, password2 } = formData
+  const { userName, password, password2, name } = formData
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const { user, isError, isSuccess, message } = useSelector(
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   )
 
@@ -51,15 +54,13 @@ function Register() {
       const userData = {
         userName,
         password,
+        password2,
+        name
       }
 
-      dispatch(authSlice.register(userData))
+      dispatch(register(userData))
     }
   }
-
-  //if (isLoading) {
-  //  return <Spinner />
- // }
 
   return (
     <>
@@ -67,7 +68,7 @@ function Register() {
         <h1>
          Register
         </h1>
-        <p>Please create an account</p>
+        <p>Please create a username</p>
       </section>
 
       <section className='form'>
@@ -83,7 +84,7 @@ function Register() {
               onChange={onChange}
             />
           </div>
-         
+
           <div className='form-group'>
             <input
               type='password'
@@ -103,6 +104,17 @@ function Register() {
               name='password2'
               value={password2}
               placeholder='Confirm password'
+              onChange={onChange}
+            />
+          </div>
+          <div className='form-group'>
+            <input
+              type='name'
+              className='form-control'
+              id='name'
+              name='name'
+              value={name}
+              placeholder='Enter your name'
               onChange={onChange}
             />
           </div>

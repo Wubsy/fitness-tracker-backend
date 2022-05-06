@@ -2,8 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-const users = require("./routes/routes/api/users");
-const activities = require("./routes/routes/api/activity");
+const users = require("./routes/api/users");
+const activities = require("./routes/api/activity");
 const app = express();
 require('dotenv').config();
 

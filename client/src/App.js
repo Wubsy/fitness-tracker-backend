@@ -11,10 +11,11 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 import TopBar from './components/TopBar';
 
 import Home from './components/Home';
-import CreateUser from './components/CreateUser';
+import Register from './components/Register';
+import Login from './components/SignIn';
 
-
-
+//Redux
+import { Provider } from 'react-redux';
 
 
 import Activity from './components/Activity';
@@ -23,8 +24,8 @@ import Activity from './components/Activity';
 function App() {
   
   return (
-    <div className="App">
-      <Router>
+  <div>
+     <Router>
         <header>
           <h1 className="title">Fitness Tracker</h1>
           <TopBar/>
@@ -32,8 +33,9 @@ function App() {
           <div className="display">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/create" element={<Activity />} />
-              <Route path="/log" element={<CreateUser/>} />
+              <Route path="/signUp" element={<Register/>} />
+              <Route path="/signIn" element={<Login/>} />
+              
             </Routes>
           </div>
 

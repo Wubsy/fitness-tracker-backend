@@ -7,7 +7,6 @@ import { toast } from 'react-toastify'
 
 import { register, reset } from '../features/auth/authSlice';
 
-// import authSlice from '../features /auth/authSlice'
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -62,9 +61,10 @@ function Register() {
     }
   }
 
+
   return (
     <>
-      <section className='heading'>
+      <section>
         <h1>
          Register
         </h1>

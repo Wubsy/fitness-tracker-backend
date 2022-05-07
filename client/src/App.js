@@ -10,6 +10,7 @@ import TopBar from './components/TopBar';
 import Home from './components/Home';
 import Register from './components/Register';
 import Login from './components/SignIn';
+import ShowUser from './components/ShowUser';
 
 //Redux
 import { Provider } from 'react-redux';
@@ -30,6 +31,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/signUp" element={<Register/>} />
               <Route path="/signIn" element={<Login/>} />
+              <Route path="/profile" element={<ShowUser />} />
               
             </Routes>
           </div>

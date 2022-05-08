@@ -127,7 +127,7 @@ router.patch("/update", passport.authenticate("jwt", { session: false }), async 
   if (req.body.userName) {
     try {
       const userNameData = await updateUserData(userToUpdate.id, {userName: req.body.userName});
-      message.userName = userNameData.userName;
+      message.userName = req.body.userName;
     } catch (err) {
       message.userName = "Failed to update username";
       errCount++;
@@ -148,7 +148,7 @@ router.patch("/update", passport.authenticate("jwt", { session: false }), async 
   if (req.body.name) {
     try {
       const newNameData = await updateUserData(userToUpdate.id, {name: req.body.name});
-      message.name = newNameData.name;
+      message.name = req.body.name;
     } catch (err) {
       message.name = "Error changing name";
       errCount++;

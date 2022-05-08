@@ -11,6 +11,7 @@ import Home from './components/Home';
 import Register from './components/Register';
 import Login from './components/SignIn';
 import ShowUser from './components/ShowUser';
+import EditUser from './components/EditUser';
 
 //Redux
 import { Provider } from 'react-redux';
@@ -32,6 +33,7 @@ function App() {
               <Route path="/signUp" element={<Register/>} />
               <Route path="/signIn" element={<Login/>} />
               <Route path="/profile" element={<ShowUser />} />
+              <Route path="/update" element={<EditUser />} />
               
             </Routes>
           </div>

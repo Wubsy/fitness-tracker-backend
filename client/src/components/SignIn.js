@@ -15,22 +15,28 @@ function LogIn() {
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
-
+  
   const { user, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   )
-
+ 
   useEffect(() => {
+    
+   
+    
+   
     if (isError) {
       toast.error(message)
     }
 
     if (isSuccess || user) {
+     
       navigate('/')
     }
-
     dispatch(reset())
+   
   }, [user, isError, isSuccess, message, navigate, dispatch])
+  
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -41,15 +47,17 @@ function LogIn() {
 
   const onSubmit = (e) => {
     e.preventDefault()
-
+    
     const userData = {
       userName,
-      password,
+      password
     }
-
+    
+  
     dispatch(login(userData))
   }
-
+  
+  
   return (
     <>
       <section >

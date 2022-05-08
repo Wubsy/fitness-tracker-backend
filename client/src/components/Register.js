@@ -21,7 +21,7 @@ function Register() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
+  const { user, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   )
 
@@ -30,7 +30,7 @@ function Register() {
       toast.error(message)
     }
 
-    if (isSuccess || user) {
+    if (isSuccess ) {
       navigate('/')
     }
 

@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../features/auth/authSlice'
 
 function Header() {
+function Home() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { user } = useSelector((state) => state.auth)
@@ -44,5 +45,5 @@ function Header() {
     </header>
   )
 }
-
+}
 export default Header

@@ -7,7 +7,6 @@ import { toast } from 'react-toastify'
 
 import { register, reset } from '../features/auth/authSlice';
 
-// import authSlice from '../features /auth/authSlice'
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -22,7 +21,7 @@ function Register() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
+  const { user, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   )
 
@@ -31,7 +30,7 @@ function Register() {
       toast.error(message)
     }
 
-    if (isSuccess || user) {
+    if (isSuccess ) {
       navigate('/')
     }
 
@@ -62,9 +61,10 @@ function Register() {
     }
   }
 
+
   return (
     <>
-      <section className='heading'>
+      <section>
         <h1>
          Register
         </h1>

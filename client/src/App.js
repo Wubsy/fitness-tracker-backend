@@ -9,6 +9,7 @@ import TopBar from './components/TopBar';
 
 import Home from './components/Home';
 import Register from './components/Register';
+import LogIn from './components/SignIn';
 import Login from './components/SignIn';
 import ShowUser from './components/ShowUser';
 import EditUser from './components/EditUser';
@@ -29,9 +30,10 @@ function App() {
           <br/>
           <div className="display">
             <Routes>
-              <Route path="/" element={<Home />} />
+            
+              <Route path="/" element={<Home/>} />
               <Route path="/signUp" element={<Register/>} />
-              <Route path="/signIn" element={<Login/>} />
+              <Route path="/signIn" element={<LogIn/>} />
               <Route path="/profile" element={<ShowUser />} />
               <Route path="/update" element={<EditUser />} />
               

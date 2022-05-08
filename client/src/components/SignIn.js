@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { login, reset } from '../features/auth/authSlice'
 
-
 function LogIn() {
   const [formData, setFormData] = useState({
     userName: '',

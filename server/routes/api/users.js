@@ -13,6 +13,7 @@ const User = require("../../models/User");
 
 let Exercise = require('../../models/activity');
 const passport = require("passport");
+const user = require("../../models/User");
 
 
 // @route POST api/users/register
@@ -88,6 +89,7 @@ router.post("/login", (req, res) => {
                 success: true,
                 token: "Bearer " + token,
                 _id: user.id,
+               
               });
             }
           );
@@ -99,7 +101,21 @@ router.post("/login", (req, res) => {
       });
     });
   });
-
+  
+  router.get(
+    "/profile",
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+       User.findOne({ _id: req.user.id})
+       .then(user => res.status(200).json(user))
+          
+          .catch(err =>
+             res
+                .status(400)
+                .json({ user: "Error fetching user" })
+          );
+    }
+ );
 // @route DELETE api/users/
 // @desc Delete user data in database
 // @access Authorized

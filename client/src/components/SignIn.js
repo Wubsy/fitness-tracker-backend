@@ -21,10 +21,7 @@ function LogIn() {
   )
  
   useEffect(() => {
-    
-   
-    
-   
+     
     if (isError) {
       toast.error(message)
     }
@@ -61,10 +58,10 @@ function LogIn() {
   return (
     <>
       <section >
-        <h1>
-          Login
-        </h1>
-        <p>Login and start keeping track of your workouts!</p>
+        <h3>
+          Sign in and start keeping track of your workouts!
+        </h3>
+        
       </section>
 
       <section className='form'>
@@ -80,6 +77,7 @@ function LogIn() {
               onChange={onChange}
             />
           </div>
+          <br></br>
           <div className='form-group'>
             <input
               type='password'
@@ -91,10 +89,11 @@ function LogIn() {
               onChange={onChange}
             />
           </div>
-
-          <div className='form-group'>
-            <button type='submit' className='btn btn-block'>
-              Submit
+         <br></br>
+         <br></br>
+          <div className="d-grid">
+            <button type='submit' className='btn btn-secondary'>
+              Log In
             </button>
           </div>
         </form>
@@ -103,4 +102,4 @@ function LogIn() {
   )
 }
 
-export default LogIn
+export default LogIn;

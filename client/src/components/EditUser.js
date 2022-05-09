@@ -85,7 +85,7 @@ export default class EditUser extends Component {
                     <button
                         type="submit"
                         onClick={this.editUser.bind(this)}
-                        className="btn btn-primary"
+                        className="btn btn-secondary"
                     >
                         Submit
                     </button>

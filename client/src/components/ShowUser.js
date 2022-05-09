@@ -24,16 +24,18 @@ const ShowUser = () => {
     }, []);
 
     return <div>
-            <div className="userprofile">
-                <h1>{ userName}</h1>
-                <a href={`/update`} className="btn btn-light">Edit user</a>
+            <div className="d-grid">
+                <h1>{ userName }</h1>
+                <a href={`/update`} className="btn btn-secondary">Edit user</a>
+            </div>
+            <br></br>
                 <form method="POST" action={`/places/${id}?_methhod=DELETE`}>
-                    <button type="submit" className="btn btn-danger">Delete user</button>
+                <div className="d-grid">   
+                    <button type="submit" className="btn btn-light">Delete user</button>
+                    </div>
                 </form>
-
-    </div>;
-    </div> 
-    }
-;
+            
+    </div>
+    };
 
 export default ShowUser;

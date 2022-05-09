@@ -12,10 +12,12 @@ function TopBar () {
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
                   <Nav.Link href="/">Home</Nav.Link>
-                  <Nav.Link href="/create">Activity</Nav.Link>                
-                  <Nav.Link href="/signIn">Sign In</Nav.Link>
 
-                  <Nav.Link href="/test">Test</Nav.Link>
+                  <Nav.Link href="/create">Activity</Nav.Link>
+                  {/* <Nav.Link href="/signIn">Sign In</Nav.Link>
+                  <Nav.Link href="/signUp">Add User</Nav.Link> */}
+                  <Nav.Link href="/test"> Show User</Nav.Link>
+
 
 
                   <NavDropdown title="User Profile" id="basic-nav-dropdown">

@@ -8,12 +8,17 @@ import TopBar from './components/TopBar';
 import Home from './components/Home';
 import Register from './components/Register';
 import LogIn from './components/SignIn';
+
+// import ShowUser from './components/ShowUser';
+import ShowUser from './components/page';
+
 import ShowUser from './components/ShowUser';
 
 import Dashboard from './components/page';
 
 import EditUser from './components/EditUser';
 import Error from './components/Error';
+
 
 //Redux
 import { Provider } from 'react-redux';
@@ -35,6 +40,13 @@ function App() {
             <Routes>
             
               <Route path="/" element={<Home/>} />
+
+              <Route path="/signUp" element={<Register/>} />
+              <Route path="/login" element={<LogIn/>} />
+              {/* <Route path="/profile" element={<ShowUser />} /> */}
+              <Route path="/create" element={<Activity />} />
+              <Route path="/test" element={<ShowUser/>}/>
+
               <Route path="/signUp" element={<Register />} />
               <Route path="/signIn" element={<LogIn />} />
               <Route path="/profile" element={<ShowUser />} />
@@ -44,6 +56,7 @@ function App() {
 
               <Route path="/update" element={<EditUser />} />
               <Route page="*" element={<Error />} />
+
 
               
             </Routes>

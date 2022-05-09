@@ -31,7 +31,7 @@ function Register() {
     }
 
     if (isSuccess || user) {
-      navigate('/profile')
+      navigate('/test')
     }
 
     dispatch(reset())

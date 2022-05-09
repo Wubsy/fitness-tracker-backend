@@ -3,8 +3,18 @@ import { useDispatch } from 'react-redux'
 import { createActivity } from '../features/acitivity/activitySlice'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import { useNavigate } from 'react-router';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { toast } from 'react-toastify';
+import { reset } from '../features/acitivity/activitySlice';
+import TopBar from './TopBar';
+
+
+
 // import { useNavigate } from 'react-router';
 // const navigate=useNavigate
+
 
 import image from "../images/mikel-parera-activity.jpg";
 
@@ -18,27 +28,71 @@ function Activity() {
   })
   
   const { description, duration, date } = activityData
-  const dispatch = useDispatch()
   
+  const dispatch = useDispatch()
+  const navigate= useNavigate
+  const { exercises, isError, isSuccess, message } 
+= useSelector(
+    (state) => state.exercises
+  )
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message)
+    }
+
+    if (isSuccess) {
+      navigate('/test')
+    }
+
+    dispatch(reset())
+  }, [exercises, isError, isSuccess, message, navigate, dispatch])
   const onChange = (e) => {
     setactivityData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }))
   }
+  
 
   const onSubmit = (e) => {
     e.preventDefault()
-
+    window.location.href = "/test"
     const activityData = {
       description,
       duration,
       date
     }
+    
 
     dispatch(createActivity(activityData))
     
+    
+    
   }
+   
+
+  
+  
+  // const onChange = (e) => {
+  //   setactivityData((prevState) => ({
+  //     ...prevState,
+  //     [e.target.name]: e.target.value,
+  //   }))
+  // }
+
+  // const onSubmit = (e) => {
+  //   e.preventDefault()
+
+  //   const activityData = {
+  //     description,
+  //     duration,
+  //     date
+  //   }
+
+  //   dispatch(createActivity(activityData))
+    
+  // }
 
   return (<>
   <div style= {{ backgroundImage:`url(${image})`,backgroundRepeat:"no-repeat",backgroundSize:"cover",width:"100vw",height:"100vh"}}>
@@ -87,11 +141,12 @@ function Activity() {
             />
           </div>
 
+
           <br></br>
           <br></br>
           <div className="d-grid">
           
-            <button type='submit' className='btn btn-secondary'>
+            <button onSubmit={onsubmit} className='btn btn-secondary'>
 
               Submit
             </button>

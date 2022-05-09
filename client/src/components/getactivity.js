@@ -29,7 +29,7 @@ function ActivityItem({ exercise, token }) {
     <td>{exercise.date}</td>
   </tr>
     </table>  
-    <button onClick={() => dispatch(deleteActivity(exercise._id, token))} className='close'>
+    <button onClick={() => dispatch(deleteActivity(exercise, token))} className='close'>
         X
       </button>    
     </div>

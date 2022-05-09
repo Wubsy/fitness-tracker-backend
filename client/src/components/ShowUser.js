@@ -26,7 +26,7 @@ const ShowUser = () => {
     return <div>
             <div className="userprofile">
                 <h1>{ userName}</h1>
-                <a href={`/users/update`} className="btn btn-light">Edit user</a>
+                <a href={`/update`} className="btn btn-light">Edit user</a>
                 <form method="POST" action={`/places/${id}?_methhod=DELETE`}>
                     <button type="submit" className="btn btn-danger">Delete user</button>
                 </form>

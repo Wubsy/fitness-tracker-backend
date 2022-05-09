@@ -12,19 +12,19 @@ function TopBar () {
   const { user } = useSelector((state) => state.auth)
  
   return (
-      <div>
+    <div>
           <Navbar bg="light" expand="lg">
             <Container>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                  <Nav.Link href="/">Home</Nav.Link>
+                  <Nav.Link href="/"><h2>Home</h2></Nav.Link><br/>
 
-                  <Nav.Link href="/create">Activity</Nav.Link>
+                  <Nav.Link href="/create"><h2>Add Activity</h2></Nav.Link><br/>
                   {/* <Nav.Link href="/signIn">Sign In</Nav.Link>
                   <Nav.Link href="/signUp">Add User</Nav.Link> */}
 
-                  <Nav.Link href="/test">Show User</Nav.Link> </Nav>
+                  <Nav.Link href="/test"><h2>Show User</h2></Nav.Link> </Nav>
 
               </Navbar.Collapse>
             </Container>

@@ -24,19 +24,19 @@ function Home() {
         {user ? (
           <li>
             <button className='btn' onClick={onLogout}>
-              Logout
+             <h3>Logout</h3> 
             </button>
           </li>
         ) : (
           <>
             <li>
-              <Link to='/login'>
-                 Login
+            <Link to='/login'>
+              <h3>Login</h3> 
               </Link>
             </li>
             <li>
               <Link to='/signUp'>
-                Register
+               <h3>Register</h3> 
               </Link>
             </li>
           </>

@@ -48,10 +48,8 @@ function App() {
 
               <Route path="/signUp" element={<Register />} />
               <Route path="/signIn" element={<LogIn />} />
-              <Route path="/profile" element={<ShowUser />} />
+            
               <Route path="/create" element={<Activity />} />
-
-              <Route path="/test" element={<Dashboard/>}/>
 
               <Route path="/update" element={<EditUser />} />
               <Route page="*" element={<Error />} />

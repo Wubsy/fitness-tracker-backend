@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import { register, reset } from '../features/auth/authSlice';
+import image from "../images/langston-register.jpg";
 
 
 function Register() {
@@ -64,6 +65,7 @@ function Register() {
 
   return (
     <>
+    <div style= {{ backgroundImage:`url(${image})`,backgroundRepeat:"no-repeat",backgroundSize:"cover",width:"100vw",height:"100vh"}}>
       <section>
         <h1>
          Register
@@ -127,7 +129,10 @@ function Register() {
             </button>
           </div>
         </form>
+        <div>Photo by <a href="https://unsplash.com/@langston?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">@langston</a> on <a href="https://unsplash.com/s/photos/empty-plate?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+    </div>
       </section>
+      </div>
     </>
   )
 }

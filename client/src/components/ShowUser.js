@@ -1,11 +1,10 @@
-
-
-import { useEffect } from 'react'
+import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import ActivityItem from './getactivity'
 import { getActivity, reset } from '../features/acitivity/activitySlice'
 import TopBar from "./TopBar"
+import axios from "axios";
 
 function ShowUser() {
   const navigate = useNavigate()
@@ -20,6 +19,7 @@ function ShowUser() {
     if (isError) {
       console.log(message)
     }
+
 
     if (!user) {
       navigate('/login')

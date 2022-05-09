@@ -38,5 +38,9 @@ app.use("/api/activity", activities);
 //const exercisesRouter = require('./routes/api/activity');
 //app.use('/activity', exercisesRouter);
 
+app.get('*', (req, res) => {
+  res.render('error')
+})
+
 const port = process.env.PORT ; 
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));

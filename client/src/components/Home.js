@@ -17,7 +17,7 @@ function Home() {
   }
 
   return (
-    <header className='header'>
+    <header>
    
      
       <ul>

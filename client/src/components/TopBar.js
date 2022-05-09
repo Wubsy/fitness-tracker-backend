@@ -17,6 +17,8 @@ function TopBar () {
                   <Nav.Link href="/create">Activity</Nav.Link>
                   <Nav.Link href="/signIn">Sign In</Nav.Link>
                   <Nav.Link href="/signUp">Add User</Nav.Link>
+                  <Nav.Link href="/test">Test</Nav.Link>
+
                 </Nav>
               </Navbar.Collapse>
             </Container>

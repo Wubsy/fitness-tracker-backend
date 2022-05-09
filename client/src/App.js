@@ -10,7 +10,6 @@ import TopBar from './components/TopBar';
 import Home from './components/Home';
 import Register from './components/Register';
 import LogIn from './components/SignIn';
-import Login from './components/SignIn';
 import ShowUser from './components/ShowUser';
 import EditUser from './components/EditUser';
 

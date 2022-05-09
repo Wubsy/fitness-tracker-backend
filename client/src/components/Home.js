@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../features/auth/authSlice'
+import TopBar from "./TopBar";
 
 function Home() {
   const navigate = useNavigate()
@@ -16,9 +17,8 @@ function Home() {
 
   return (
     <header className='header'>
-      <div className='logo'>
-        <Link to='/'>Fitness Tracker</Link>
-      </div>
+   
+     
       <ul>
         {user ? (
           <li>
@@ -29,7 +29,7 @@ function Home() {
         ) : (
           <>
             <li>
-              <Link to='/signIn'>
+              <Link to='/login'>
                  Login
               </Link>
             </li>

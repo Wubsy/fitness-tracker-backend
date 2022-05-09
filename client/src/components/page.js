@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import ActivityItem from './getactivity'
 import { getActivity, reset } from '../features/acitivity/activitySlice'
+import TopBar from './TopBar'
 function Dashboard() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -30,7 +31,9 @@ function Dashboard() {
 
   return (
     <>
+     
       <section className='heading'>
+     
        <h1> {user.user}</h1>
         <p>Workout Log</p>
       </section>

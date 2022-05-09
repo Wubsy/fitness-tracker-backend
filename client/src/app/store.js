@@ -6,7 +6,11 @@ import activitySlice from '../features/acitivity/activitySlice'
 export const store = configureStore({
   reducer: {
     auth: authSlice.reducer,
+
     exercises: activitySlice.reducer,
+
+
+
   
   },
 })

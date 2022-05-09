@@ -13,7 +13,6 @@ const User = require("../../models/User");
 
 let Exercise = require('../../models/activity');
 const passport = require("passport");
-const user = require("../../models/User");
 
 
 // @route POST api/users/register
@@ -88,7 +87,10 @@ router.post("/login", (req, res) => {
               res.json({
                 success: true,
                 token: "Bearer " + token,
+
                 user: userName
+
+
                
               });
             }
@@ -101,6 +103,7 @@ router.post("/login", (req, res) => {
       });
     });
   });
+  
   router.get(
     "/profile",
     passport.authenticate("jwt", { session: false }),
@@ -143,7 +146,7 @@ router.patch("/update", passport.authenticate("jwt", { session: false }), async 
   if (req.body.userName) {
     try {
       const userNameData = await updateUserData(userToUpdate.id, {userName: req.body.userName});
-      message.userName = userNameData.userName;
+      message.userName = req.body.userName;
     } catch (err) {
       message.userName = "Failed to update username";
       errCount++;
@@ -164,7 +167,7 @@ router.patch("/update", passport.authenticate("jwt", { session: false }), async 
   if (req.body.name) {
     try {
       const newNameData = await updateUserData(userToUpdate.id, {name: req.body.name});
-      message.name = newNameData.name;
+      message.name = req.body.name;
     } catch (err) {
       message.name = "Error changing name";
       errCount++;

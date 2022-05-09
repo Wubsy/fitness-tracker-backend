@@ -84,7 +84,7 @@ function Register() {
               onChange={onChange}
             />
           </div>
-
+          <br></br>
           <div className='form-group'>
             <input
               type='password'
@@ -107,6 +107,7 @@ function Register() {
               onChange={onChange}
             />
           </div>
+          <br></br>
           <div className='form-group'>
             <input
               type='name'
@@ -118,8 +119,10 @@ function Register() {
               onChange={onChange}
             />
           </div>
-          <div className='form-group'>
-            <button type='submit' className='btn btn-block'>
+          <br></br>
+          <br></br>
+          <div className="d-grid">
+            <button type='submit' className='btn btn-secondary'>
               Submit
             </button>
           </div>

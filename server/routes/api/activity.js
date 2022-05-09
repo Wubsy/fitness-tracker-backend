@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const mongoose = require('mongoose');
 const passport = require("passport");
 let Exercise = require('../../models/activity');
-// let user= require('../../models/activity')
+let user= require('../../models/activity')
 
 const {ExtractJwt} = require("passport-jwt");
 const {request} = require("express");
@@ -16,8 +16,8 @@ router.get(
    "/exercise",
    passport.authenticate("jwt", { session: false }),
    (req, res) => {
-      Exercise.find({ user: req.user.userId })
-         .then(exercies => res.status(200).json(exercies))
+      Exercise.find({ userId: req.user.id})
+         .then(exercises => res.status(200).json(exercises))
          .catch(err =>
             res
                .status(400)

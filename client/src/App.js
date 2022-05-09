@@ -9,6 +9,9 @@ import Home from './components/Home';
 import Register from './components/Register';
 import LogIn from './components/SignIn';
 import ShowUser from './components/ShowUser';
+
+import Dashboard from './components/page';
+
 import EditUser from './components/EditUser';
 import Error from './components/Error';
 
@@ -36,8 +39,12 @@ function App() {
               <Route path="/signIn" element={<LogIn />} />
               <Route path="/profile" element={<ShowUser />} />
               <Route path="/create" element={<Activity />} />
+
+              <Route path="/test" element={<Dashboard/>}/>
+
               <Route path="/update" element={<EditUser />} />
               <Route page="*" element={<Error />} />
+
               
             </Routes>
           </div>

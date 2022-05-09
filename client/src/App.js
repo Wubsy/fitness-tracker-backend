@@ -52,8 +52,7 @@ function App() {
               <Route path="/create" element={<Activity />} />
 
               <Route path="/update" element={<EditUser />} />
-              <Route page="*" element={<Error />} />
-
+              <Route page="*" component={Error} />
 
               
             </Routes>

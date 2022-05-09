@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background: #2c84f7 !important;
+  background: #e8eaee !important;
   min-height: 100vh;
   display: flex;
   font-weight: 400;
@@ -100,5 +100,6 @@ body, html, .App, #root, .auth-wrapper {
   }
 }
 .close{
-  background-color: red
+  background-color: rgb(161, 8, 8)
 }
+

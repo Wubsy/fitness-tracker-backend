@@ -1,5 +1,7 @@
 import { useDispatch } from 'react-redux'
 import { deleteActivity } from '../features/acitivity/activitySlice'
+import 'bootstrap/dist/css/bootstrap.css';
+import Button from '@restart/ui/esm/Button';
 // import { useNavigate } from 'react-router'
 // const navigate=useNavigate
 
@@ -26,7 +28,7 @@ function ActivityItem({ exercise, token }) {
   <tr>
     <td>{exercise.description}</td>
     <td>{exercise.duration} minutes</td><br/>
-    <td>{exercise.date}</td>
+    <td>{Date(exercise.date.toDateString)}</td>
   </tr>
     </table>  
     <button onClick={() => dispatch(deleteActivity(exercise, token))} className='close'>

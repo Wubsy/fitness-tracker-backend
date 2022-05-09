@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../features/auth/authSlice'
 import TopBar from "./TopBar";
 
+
 function Home() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -16,7 +17,7 @@ function Home() {
   }
 
   return (
-    <header className='header'>
+    <header>
    
      
       <ul>

@@ -4,15 +4,18 @@ const isEmpty = require("is-empty");
 module.exports = validateActivityInput = data => {
    let errors = {};
 
-   let { userName, activity, duration } = data;
+   let { name, description, duration, date } = data;
    // Converting empty fields to empty string as validator function works only with strings
-   //userName= !isEmpty(data.userName) ? data.userName : "";
+   name= !isEmpty(data.name) ? data.name : "";
    description = !isEmpty(data.description) ? data.description : "";
    duration= !isEmpty(data.duration) ? data.duration : "";
    date= !isEmpty(data.date) ? data.date: "";
    //if (Validator.isEmpty(data.userName)) {
     //errors.userName = "userName is required";
  //}
+//  if (Validator.isEmpty(data.name)) {
+//    errors.description = "name is required";
+// }
    if (Validator.isEmpty(data.description)) {
       errors.description = "Description is required";
    }

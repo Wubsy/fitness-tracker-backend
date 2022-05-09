@@ -32,9 +32,10 @@ function App() {
             <Routes>
             
               <Route path="/" element={<Home/>} />
-              <Route path="/signUp" element={<Register/>} />
-              <Route path="/signIn" element={<LogIn/>} />
+              <Route path="/signUp" element={<Register />} />
+              <Route path="/signIn" element={<LogIn />} />
               <Route path="/profile" element={<ShowUser />} />
+              <Route path="/create" element={<Activity />} />
               <Route path="/update" element={<EditUser />} />
               
             </Routes>

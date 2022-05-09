@@ -4,19 +4,34 @@ const jwt = require("jsonwebtoken");
 const mongoose = require('mongoose');
 const passport = require("passport");
 let Exercise = require('../../models/activity');
+// let user= require('../../models/activity')
+
 const {ExtractJwt} = require("passport-jwt");
 const {request} = require("express");
 
 require('dotenv').config()
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
-
+router.get(
+   "/exercise",
+   passport.authenticate("jwt", { session: false }),
+   (req, res) => {
+      Exercise.find({ user: req.user.userId })
+         .then(exercies => res.status(200).json(exercies))
+         .catch(err =>
+            res
+               .status(400)
+               .json({ user: "Error fetching activity of logged in user" })
+         );
+   }
+);
 
 router.post(
     "/add",
     passport.authenticate("jwt", { session: false }),
     (req, res) => {
        const userId = jwt.verify((req.headers["authorization"]).replace("Bearer ", ""), process.env.secretOrKey).id;
+       //const name= req.user.id
        const description = req.body.description;
        const duration = req.body.duration;
        const date=Date.parse(req.body.date)
@@ -26,8 +41,7 @@ router.post(
        }
       
        const newExercise = new Exercise(
-         {
-           userId,
+         { userId,
            description,
            duration,
            date,
@@ -39,7 +53,6 @@ router.post(
           .catch(err => res.status(500).json({ create: "Error creating new post: " +err}));
     }
  );
-
 
 
 

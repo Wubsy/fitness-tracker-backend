@@ -14,11 +14,16 @@ function TopBar () {
                   <Nav.Link href="/">Home</Nav.Link>
                   <Nav.Link href="/create">Activity</Nav.Link>                
                   <Nav.Link href="/signIn">Sign In</Nav.Link>
+
+                  <Nav.Link href="/test">Test</Nav.Link>
+
+
                   <NavDropdown title="User Profile" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/signUp">New User Profile</NavDropdown.Item>
                   <NavDropdown.Item href="/profile">View Profile</NavDropdown.Item>
                   <NavDropdown.Item href="/update">Update Profile</NavDropdown.Item>
                   </NavDropdown>
+
                 </Nav>
               </Navbar.Collapse>
             </Container>

@@ -2,7 +2,12 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { createActivity } from '../features/acitivity/activitySlice'
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+// import { useNavigate } from 'react-router';
+// const navigate=useNavigate
+
 import image from "../images/mikel-parera-activity.jpg";
+
 
 
 function Activity() {
@@ -81,11 +86,13 @@ function Activity() {
               onChange={onChange}
             />
           </div>
+
           <br></br>
           <br></br>
           <div className="d-grid">
           
             <button type='submit' className='btn btn-secondary'>
+
               Submit
             </button>
           

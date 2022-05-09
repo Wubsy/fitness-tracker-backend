@@ -9,12 +9,26 @@ function ActivityItem({ exercise, token }) {
  
   return (
     <div>
-      <h3>{exercise.date}</h3>
-      <h2>{exercise.description}</h2>
-      <h2>{exercise.duration}</h2>
+      
+          {/* <h2>{exercise.description}</h2>
+      <h4>{exercise.date}</h4>
+      <h3>{exercise.duration}</h3>
       <button onClick={() => dispatch(deleteActivity(exercise, token))}>
         X
-      </button>
+      </button>  */}
+
+      <table>
+  <tr>
+    <th>Exercice Name</th><br/>
+    <th>Duration</th><br/>
+    <th>Date</th>
+  </tr>
+  <tr>
+    <td>{exercise.description}</td>
+    <td>{exercise.duration}</td><br/>
+    <td>{exercise.date}</td>
+  </tr>
+    </table>      
     </div>
   )
 }

@@ -68,7 +68,7 @@ export const getActivity = createAsyncThunk(
     name: 'exercise',
     initialState,
     reducers: {
-      reset: (state) => initialState,
+        reset: (state) => initialState,
     },
     extraReducers: (builder) => {
       builder

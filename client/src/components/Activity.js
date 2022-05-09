@@ -2,8 +2,12 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { createActivity } from '../features/acitivity/activitySlice'
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 // import { useNavigate } from 'react-router';
 // const navigate=useNavigate
+
+import image from "../images/mikel-parera-activity.jpg";
+
 
 
 function Activity() {
@@ -37,11 +41,12 @@ function Activity() {
   }
 
   return (<>
+  <div style= {{ backgroundImage:`url(${image})`,backgroundRepeat:"no-repeat",backgroundSize:"cover",width:"100vw",height:"100vh"}}>
     <section>
-      <h1>
-       Keep Track Of Your Workouts
-      </h1>
-      <p>Please Enter workout Information</p>
+      <h3>
+       Keep Track of Your Workouts
+      </h3>
+      <p>Please enter your workout information</p>
     </section>
     <section className='form'>
         <form onSubmit={onSubmit}>
@@ -57,6 +62,7 @@ function Activity() {
               onChange={onChange}
             />
           </div>
+          <br></br>
           <div className='form-group'>
             <input
               type='number'
@@ -64,10 +70,11 @@ function Activity() {
               id='duration'
               name='duration'
               value={duration}
-              placeholder='enter activity duration'
+              placeholder='Enter the amout of time you spent doing this activity'
               onChange={onChange}
             />
           </div>
+          <br></br>
           <div className='form-group'>
             <input
               type='name'
@@ -75,17 +82,26 @@ function Activity() {
               id='date'
               name='date'
               value={date}
-              placeholder='Enter activity date'
+              placeholder='Enter the date you did this activity'
               onChange={onChange}
             />
           </div>
-          <div className='form-group'>
-            <button type= "submit">
+
+          <br></br>
+          <br></br>
+          <div className="d-grid">
+          
+            <button type='submit' className='btn btn-secondary'>
+
               Submit
             </button>
+          
           </div>
         </form>
+        <div>Photo by <a href="https://unsplash.com/@mikel.perera?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Mikel Parera</a> on <a href="https://unsplash.com/s/photos/empty-plate?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+            </div>
       </section>
+      </div>
       </>
   )
 }

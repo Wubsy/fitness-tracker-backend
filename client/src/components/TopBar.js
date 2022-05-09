@@ -1,9 +1,7 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import React, { Component } from 'react';
+import React from 'react';
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
 function TopBar () {
   return (
@@ -14,10 +12,17 @@ function TopBar () {
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
                   <Nav.Link href="/">Home</Nav.Link>
-                  <Nav.Link href="/create">Activity</Nav.Link>
+                  <Nav.Link href="/create">Activity</Nav.Link>                
                   <Nav.Link href="/signIn">Sign In</Nav.Link>
-                  <Nav.Link href="/signUp">Add User</Nav.Link>
+
                   <Nav.Link href="/test">Test</Nav.Link>
+
+
+                  <NavDropdown title="User Profile" id="basic-nav-dropdown">
+                  <NavDropdown.Item href="/signUp">New User Profile</NavDropdown.Item>
+                  <NavDropdown.Item href="/profile">View Profile</NavDropdown.Item>
+                  <NavDropdown.Item href="/update">Update Profile</NavDropdown.Item>
+                  </NavDropdown>
 
                 </Nav>
               </Navbar.Collapse>

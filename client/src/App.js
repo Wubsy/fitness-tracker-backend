@@ -9,13 +9,9 @@ import Home from './components/Home';
 import Register from './components/Register';
 import LogIn from './components/SignIn';
 
-// import ShowUser from './components/ShowUser';
-import ShowUser from './components/page';
-
 import ShowUser from './components/ShowUser';
-
+//import ShowUser from './components/page';
 import Dashboard from './components/page';
-
 import EditUser from './components/EditUser';
 import Error from './components/Error';
 

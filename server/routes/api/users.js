@@ -13,7 +13,6 @@ const User = require("../../models/User");
 
 let Exercise = require('../../models/activity');
 const passport = require("passport");
-const user = require("../../models/User");
 
 
 // @route POST api/users/register

@@ -14,13 +14,15 @@ export default class EditUser extends Component {
         e.preventDefault();
         const username = document.getElementById("username");
         const password = document.getElementById("password");
-        const name = document.getElementById("name")
+        const password2 = document.getElementById("password2");
+        const name = document.getElementById("name");
 
 
         try {
             await axios.patch("http://localhost:5000/api/users/update", {
                 userName: username.value,
                 password: password.value,
+                password2: password2.value,
                 name: name.value,
             }, {
                 headers: {
@@ -49,7 +51,7 @@ export default class EditUser extends Component {
                         id="username"
                         type="Username"
                         className="form-control"
-                        placeholder="Enter username"
+                        placeholder="Enter new username"
                     />
                 </div>
                 <div className="mb-3">
@@ -58,7 +60,16 @@ export default class EditUser extends Component {
                         id="password"
                         type="password"
                         className="form-control"
-                        placeholder="Enter password"
+                        placeholder="Enter new password"
+                    />
+                </div>
+                <div className="mb-3">
+                    <label>Password</label>
+                    <input
+                        id="password2"
+                        type="password"
+                        className="form-control"
+                        placeholder="Confirm new password"
                     />
                 </div>
                 <div className="mb-3">
@@ -67,7 +78,7 @@ export default class EditUser extends Component {
                             id="name"
                             type="name"
                             className="form-control"
-                            placeholder="Enter name"
+                            placeholder="Enter new name"
                         />
                     </div>
                 <div className="d-grid">

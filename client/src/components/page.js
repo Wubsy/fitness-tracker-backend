@@ -36,7 +36,7 @@ function Dashboard() {
   return (
     <>
       <section className='heading'>
-        
+       <h1> {user.user}</h1>
         <p>Workout Log</p>
       </section>
 

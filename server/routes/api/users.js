@@ -88,6 +88,7 @@ router.post("/login", (req, res) => {
               res.json({
                 success: true,
                 token: "Bearer " + token,
+                user: userName
                
               });
             }

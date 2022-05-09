@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { createActivity } from '../features/acitivity/activitySlice'
 import 'bootstrap/dist/css/bootstrap.min.css';
+// import { useNavigate } from 'react-router';
+// const navigate=useNavigate
 
 
 function Activity() {
@@ -78,7 +80,7 @@ function Activity() {
             />
           </div>
           <div className='form-group'>
-            <button type='submit' className='btn btn-block'>
+            <button type= "submit">
               Submit
             </button>
           </div>

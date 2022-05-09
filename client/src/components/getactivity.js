@@ -1,5 +1,7 @@
 import { useDispatch } from 'react-redux'
 import { deleteActivity } from '../features/acitivity/activitySlice'
+// import { useNavigate } from 'react-router'
+// const navigate=useNavigate
 
 
 function ActivityItem({ exercise, token }) {

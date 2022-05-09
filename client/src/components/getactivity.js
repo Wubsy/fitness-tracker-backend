@@ -25,10 +25,13 @@ function ActivityItem({ exercise, token }) {
   </tr>
   <tr>
     <td>{exercise.description}</td>
-    <td>{exercise.duration}</td><br/>
+    <td>{exercise.duration} minutes</td><br/>
     <td>{exercise.date}</td>
   </tr>
-    </table>      
+    </table>  
+    <button onClick={() => dispatch(deleteActivity(exercise._id, token))} className='close'>
+        X
+      </button>    
     </div>
   )
 }

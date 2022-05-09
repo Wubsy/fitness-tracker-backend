@@ -1,9 +1,16 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css'
-import React from 'react';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import React, { Component } from 'react';
+import { useSelector } from 'react-redux';
+
 
 function TopBar () {
+  const { user } = useSelector((state) => state.auth)
+ 
   return (
       <div>
           <Navbar bg="light" expand="lg">
@@ -16,17 +23,9 @@ function TopBar () {
                   <Nav.Link href="/create">Activity</Nav.Link>
                   {/* <Nav.Link href="/signIn">Sign In</Nav.Link>
                   <Nav.Link href="/signUp">Add User</Nav.Link> */}
-                  <Nav.Link href="/test"> Show User</Nav.Link>
 
+                  <Nav.Link href="/test">Show User</Nav.Link> </Nav>
 
-
-                  <NavDropdown title="User Profile" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/signUp">New User Profile</NavDropdown.Item>
-                  <NavDropdown.Item href="/profile">View Profile</NavDropdown.Item>
-                  <NavDropdown.Item href="/update">Update Profile</NavDropdown.Item>
-                  </NavDropdown>
-
-                </Nav>
               </Navbar.Collapse>
             </Container>
           </Navbar>

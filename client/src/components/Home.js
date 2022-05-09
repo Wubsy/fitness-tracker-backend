@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../features/auth/authSlice'
-import TopBar from "./TopBar";
+import image from "../images/ben-warren-home.jpg";
 
 
 function Home() {
@@ -18,18 +18,18 @@ function Home() {
 
   return (
     <header>
-   
+   <div style= {{ backgroundImage:`url(${image})`,backgroundRepeat:"no-repeat",backgroundSize:"cover",width:"100vw",height:"100vh"}}>
      
       <ul>
         {user ? (
-          <li>
-            <button className='btn' onClick={onLogout}>
+         <div className="d-grid">
+            <button className='btn btn-secondary' onClick={onLogout}>
               Logout
             </button>
-          </li>
+            </div>
         ) : (
           <>
-            <li>
+             <li>
               <Link to='/login'>
                  Login
               </Link>
@@ -42,6 +42,7 @@ function Home() {
           </>
         )}
       </ul>
+      </div>
     </header>
   )
 }

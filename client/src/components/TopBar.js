@@ -6,6 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import React, { Component } from 'react';
 import { useSelector } from 'react-redux';
+import { NavItem } from 'react-bootstrap';
 
 
 function TopBar () {
@@ -24,8 +25,9 @@ function TopBar () {
                   {/* <Nav.Link href="/signIn">Sign In</Nav.Link>
                   <Nav.Link href="/signUp">Add User</Nav.Link> */}
 
-                  <Nav.Link href="/test">Show User</Nav.Link> </Nav>
-
+                  <Nav.Link href="/test">User Profile</Nav.Link>
+                  <Nav.Link href="/update">Edit Profile</Nav.Link>
+                  </Nav>
               </Navbar.Collapse>
             </Container>
           </Navbar>
